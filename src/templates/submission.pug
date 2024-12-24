@@ -1,22 +1,26 @@
-div(class='submissionclass')
-    div(class='score') #{score}
-    div(class='main')
-        div(class='posted') Posted by 
-            a(href='https://reddit.com/user/' + author) #{author} 
-            a(href='index.html?mode=submissions&subreddit=&author=' + author) Submissions 
-            a(href='index.html?mode=comments&author=' + author) Comments 
-            | at #{time} 
-            | in 
-            a(href='index.html?subreddit=' + subreddit) #{subreddit}
-        div(class='title')
-            h3 #{title}
-        div
-            a(href=url) #{url}
-        div(class='commentlink')
-            a(href='index.html?comments=' + id) #{num_comments} Comments
+div(class='card mb-6')
+  div(class='flex')
+    div(class='text-lg font-medium text-secondary px-4') #{score}
+    div(class='flex-1')
+      div(class='text-sm text-secondary')
+        | Posted by 
+        a(href='https://reddit.com/user/' + author, class='text-primary hover:underline') #{author}
+        a(href='index.html?mode=submissions&subreddit=&author=' + author, class='ml-2 text-primary hover:underline') Submissions
+        a(href='index.html?mode=comments&author=' + author, class='ml-2 text-primary hover:underline') Comments
+        |  at #{time}
+        |  in 
+        a(href='index.html?subreddit=' + subreddit, class='text-primary hover:underline') #{subreddit}
+      div(class='mt-2')
+        h3(class='text-xl font-semibold') #{title}
+      if url
+        div(class='mt-2')
+          a(href=url, class='text-primary hover:underline break-all') #{url}
+      div(class='mt-4')
+        a(href='index.html?comments=' + id, class='text-primary hover:underline') #{num_comments} Comments
+      if selftext
+        div(class='mt-4 prose prose-sm max-w-none') !{selftext}
+    if thumbnail
+      div(class='ml-4')
+        img(src=thumbnail, class='max-w-xs rounded-lg')
 
-        div(class='post') !{selftext}
-    div(class='thumbnail')
-        img(src=thumbnail)
-
-div(id='t3_' + id)
+div(id='t3_' + id, class='space-y-4')

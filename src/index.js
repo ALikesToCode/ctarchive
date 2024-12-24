@@ -1,4 +1,5 @@
-import { subreddit } from "./subreddit";
+import "./styles/input.css";
+import { subreddit } from "./subreddit.js";
 
 window.onload = () => {
   const queryString = window.location.search;

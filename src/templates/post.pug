@@ -1,8 +1,8 @@
-div(class=postClass)
-    p(class='comment_title', id=id)
-        a(href='https://reddit.com/user/' + author) #{author} 
-        a(href='index.html?mode=submissions&subreddit=&author=' + author) Submissions 
-        a(href='index.html?mode=comments&author=' + author) Comments 
-        | - Score: #{score} at #{time}
-    p !{body}
-    div(class='children', id='t1_' + id)
+div(class=postClass + ' rounded-lg border border-gray-200 p-4')
+    p(class='text-sm text-secondary', id=id)
+        a(href='https://reddit.com/user/' + author, class='text-primary hover:underline') #{author}
+        a(href='index.html?mode=submissions&subreddit=&author=' + author, class='ml-2 text-primary hover:underline') Submissions
+        a(href='index.html?mode=comments&author=' + author, class='ml-2 text-primary hover:underline') Comments
+        |  - Score: #{score} at #{time}
+    div(class='mt-2 prose prose-sm max-w-none') !{body}
+    div(class='children mt-4', id='t1_' + id)

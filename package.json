@@ -1,28 +1,45 @@
 {
-  "name": "cumtownarchive",
+  "name": "reddit-archive",
   "version": "1.0.0",
-  "description": "",
+  "description": "Modern Reddit Archive Application",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build:prod": "npx webpack --config webpack.prod.js",
-    "start:dev": "npx webpack serve --config webpack.dev.js"
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "start:dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
   },
-  "keywords": [],
+  "keywords": ["reddit", "archive", "search"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "babel-loader": "^9.1.3",
     "moment-locales-webpack-plugin": "^1.2.0",
-    "pug-plugin": "^2.2.0",
-    "raw-loader": "^4.0.2",
-    "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^4.8.1"
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "postcss-loader": "^7.3.3",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.3",
+    "core-js": "^3.32.1",
+    "mini-css-extract-plugin": "^2.7.6"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "marked": "^4.0.15",
-    "moment": "^2.29.1",
-    "pug": "^3.0.0",
-    "webpack-merge": "^5.8.0"
+    "@babel/runtime": "^7.22.10",
+    "axios": "^1.4.0",
+    "marked": "^5.1.2",
+    "moment": "^2.29.4",
+    "webpack-merge": "^5.9.0",
+    "dayjs": "^1.11.9"
   }
 }
